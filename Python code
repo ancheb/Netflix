@@ -1,0 +1,42 @@
+ zip_ref.extractall("./")
+
+df = pd.read_csv("Netflix_shows_movies/netflix_titles.csv")
+
+df.dropna(subset=['important_column1', 'important_column2'], inplace=True)  
+# Remove rows with missing values in specific columns
+
+df['categorical_column'].fillna(df['categorical_column'].mode()[0], inplace=True)  
+# Replace with mode
+
+print(df.head())
+print(df.info())
+print(df.describe())
+# Basic data description
+
+print(df['release_year'].value_counts()) 
+# Frequency of release years
+print(df.groupby('type')['rating'].mean())  
+# Average rating by movie/show type
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+genre_counts = df['listed_in'].str.split(', ').explode().value_counts().head(10)
+plt.figure(figsize=(10, 6))
+sns.barplot(x=genre_counts.index, y=genre_counts.values)
+plt.title('Top 10 Most Watched Genres')
+plt.xlabel('Genre')
+plt.ylabel('Count')
+plt.xticks(rotation=45, ha='right')
+plt.show()
+# Most watched genres
+
+plt.figure(figsize=(8, 5))
+sns.histplot(df['rating'], bins=10, kde=True)
+plt.title('Distribution of Ratings')
+plt.xlabel('Rating')
+plt.ylabel('Frequency')
+plt.show() 
+# Ratings distribution
+
+
