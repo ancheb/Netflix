@@ -40,3 +40,7 @@ plt.show()
 # Ratings distribution
 
 
+##The Python script will generate the following visualizations:
+#Top 10 Most Watched Genres: A bar chart showing the frequency of the top 10 genres.
+#Distribution of Ratings: A histogram with a density curve showing the distribution of ratings on Netflix.
+
