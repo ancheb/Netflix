@@ -1,4 +1,8 @@
- zip_ref.extractall("./")
+zipfile.ZipFile("Netflix_shows_movie", 'r')
+zip_ref.extractall("./")
+
+os.rename("extracted_folder_name", "Netflix_shows_movies")
+
 
 df = pd.read_csv("Netflix_shows_movies/netflix_titles.csv")
 
