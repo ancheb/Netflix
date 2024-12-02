@@ -1,0 +1,6 @@
+##Open `ratings_distribution.R` in R or RStudio
+
+ggplot(df, aes(x = rating)) +
+  geom_histogram(bins = 10, fill = "blue", color = "black") + 
+    geom_density(alpha = 0.2, fill = "red") +
+      labs(title = "Distribution of Ratings", x = "Rating", y = "Frequency") + theme_minimal()
